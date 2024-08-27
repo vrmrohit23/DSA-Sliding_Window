@@ -1,0 +1,38 @@
+class Solution {
+    public int lengthOfLongestSubstring(String s) {
+        // Initialize a HashMap to store characters and their most recent indices in the string
+        HashMap<Character, Integer> hs = new HashMap<>();
+        
+        // Variable to store the maximum length of the substring found
+        int max = 0;
+        
+        // Pointers for the sliding window
+        int left = 0, right = 0;
+        
+        // Length of the input string
+        int n = s.length();
+        
+        // Loop through the string with the right pointer
+        while (right < n) {
+            char c = s.charAt(right); // Get the current character
+            
+            // If the character is already in the map and its index is within the current window
+            if (hs.containsKey(c) && hs.get(c) >= left) {
+                // Move the left pointer to one position right of the last occurrence of the current character
+                left = hs.get(c) + 1;
+            }
+            
+            // Update the maximum length if the current substring is longer
+            max = Math.max(right - left + 1, max);
+            
+            // Update the map with the current character's latest index
+            hs.put(c, right);
+            
+            // Move the right pointer to the next position
+            right++;
+        }
+        
+        // Return the maximum length of substring without repeating characters
+        return max;
+    }
+}
