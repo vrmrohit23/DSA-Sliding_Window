@@ -1,5 +1,13 @@
+// Intiution:
 // The intiution behind is of including and excluding the subarrays whose sum is less than the goal 
 // The idea of intiuition is not different than other problems with same asking but slightly differs from intiuitions of other questions
+
+// TC --> O(4N) 
+// Explaination :-)
+// First/Third N is for the right movement if it has to go from 0 to N-1 to include all the elements less than/equal to goal.
+// Second/Fourth N is for the left movement if it has to go through from 0 to N-1 to reduce the array to less than equal to goal.
+
+// SC --> O(1)
 
 
 class Solution {
